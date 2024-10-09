@@ -2,6 +2,7 @@ package edu.grinnell.csc207.util;
 
 /**
  * Class cipherutils provides all the methods needed for a cipher.
+ * @author Sebastian Manza
  */
 public class CipherUtils {
   /**

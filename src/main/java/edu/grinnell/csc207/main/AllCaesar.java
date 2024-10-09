@@ -6,6 +6,8 @@ import edu.grinnell.csc207.util.CipherUtils;
 /**
  * This class runs every possible caesar cipher for a given message.
  * returns the printed list of every possible cipher
+ * 
+ * @author Sebastian Manza
  */
 public class AllCaesar {
   /**

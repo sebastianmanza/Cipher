@@ -7,6 +7,8 @@ import edu.grinnell.csc207.util.CipherUtils;
  * class Cipher checks your input and outputs a correctly
  * ciphered or deciphered string with either a caesar or
  * vigenere cipher.
+ * 
+ * @author Sebastian Manza
  */
 public class Cipher {
   /**
