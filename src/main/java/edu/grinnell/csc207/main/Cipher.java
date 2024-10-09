@@ -9,12 +9,23 @@ import edu.grinnell.csc207.util.CipherUtils;
  * vigenere cipher.
  */
 public class Cipher {
+  /**
+   * An integer representing the number of arguments needed.
+   */
   public static final int NUM_ARGS = 4;
   /**
-   * main method runs the program
+   * An integer representing the vigenere decrypt case.
+   */
+  public static final int VIGDEC = 4;
+  /**
+   * An integer representing the vigenere encrypt case.
+   */
+  public static final int VIGENC = 3;
+  /**
+   * main method runs the program.
    * @param args
    */
-  public static void main(String[] args) { 
+  public static void main(String[] args) {
     PrintWriter pen = new PrintWriter(System.out, true);
     if (args.length != NUM_ARGS) {
       System.err.println("Error: Incorrect number of parameters");
@@ -38,9 +49,9 @@ public class Cipher {
     } else if (caseNumber.equals("cd") || caseNumber.equals("dc")) {
       val = 2;
     } else if (caseNumber.equals("ve") || caseNumber.equals("ev")) {
-      val = 3;
+      val = VIGENC;
     } else if (caseNumber.equals("vd") || caseNumber.equals("dv")) {
-      val = 4;
+      val = VIGDEC;
     } //Sorting the four possible cases and assigning values
 
     String str = new String(""); //Initializing an empty string to hold the unencrypted message
@@ -61,18 +72,17 @@ public class Cipher {
       } //Checking if the string has already been found
     } //Looking through the array for strings
 
-    String result = new String("");//initializing a string to store an encrypted message
-
+    String result = new String(""); //initializing a string to store an encrypted message
     switch (val) {
       case 0:
-        System.err.println("Error: Invalid parameters");//If parameters weren't entered correctly
+        System.err.println("Error: Invalid parameters"); //If parameters weren't entered correctly
         return;
       case 1:
         if (key.length() != 1) {
           System.err.println("Error: A caesar cipher needs a single character key.");
           return;
         } //Checking the key for a single character
-        result = CipherUtils.caesarEncrypt(str, key.charAt(0));//encrypting with caesarcipher
+        result = CipherUtils.caesarEncrypt(str, key.charAt(0)); //encrypting with caesarcipher
         break;
       case 2:
         if (key.length() != 1) {
@@ -81,15 +91,15 @@ public class Cipher {
         } //Checking the key for a single character
         result = CipherUtils.caesarDecrypt(str, key.charAt(0));
         break;
-      case 3:
+      case VIGENC:
         result = CipherUtils.vigenereEncrypt(str, key);
         break;
-      case 4:
+      case VIGDEC:
         result = CipherUtils.vigenereDecrypt(str, key);
         break;
       default:
         return;
-    } //A switch statement deciding the proper combination to use and calling it    
+    } //A switch statement deciding the proper combination to use and calling it
     pen.println(result);
   } //end of main method
 } //class Cipher

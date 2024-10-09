@@ -5,10 +5,13 @@ import edu.grinnell.csc207.util.CipherUtils;
 
 /**
  * This class runs every possible caesar cipher for a given message.
- * @param args
- * @return The printed list of every possible cipher
+ * returns the printed list of every possible cipher
  */
 public class AllCaesar {
+  /**
+   * The main method.
+   * @param args takes in possible arguments from the command line
+   */
   public static void main(String[] args) { //main method
     PrintWriter pen = new PrintWriter(System.out, true);
     if (args.length != 2) {
@@ -31,7 +34,8 @@ public class AllCaesar {
       } //Prints all possible encoded messages
       pen.close();
     } else {
-      System.err.printf("Error: Invalid option: \"%s\". Valid options are \"encode\" or \"decode.\"\n", args[0]);
+      System.err.printf("Error: Invalid option: ");
+      System.err.printf("\"%s\". Valid options are \"encode\" or \"decode.\"\n", args[0]);
     } //Checks if the input is encode, decode, or other
     System.err.flush();
   } //main[args]
